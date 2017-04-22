@@ -5,13 +5,20 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
+        {preload.shows.map((function (show) {
+          return (
+            <h3>{show.title}</h3>
+          )
+        }))}
       </div>
     )
   }
 }
 
 export default Search
+
+// When you want to debug json this is how you should do it:
+// <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
 
 // JSON.stringify parameters:
 // 1st - the data you want to stringify
