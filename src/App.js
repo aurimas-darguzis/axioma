@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css'
 import Landing from './Landing'
+import Search from './Search'
 
 class App extends React.Component {
   render () {
@@ -11,8 +12,10 @@ class App extends React.Component {
         <div>
           <ul>
             <li><Link to='/'>Home</Link></li>
+            <li><Link to='/search'>Search</Link></li>
           </ul>
           <Route exact path='/' component={Landing} />
+          <Route path='/search' component={Search} />
         </div>
       </Router>
     )
@@ -20,9 +23,3 @@ class App extends React.Component {
 }
 
 export default App
-
-//  <HashRouter>
-//         <div className='App'>
-//           <Match exactly pattern='/' component={Landing} />
-//         </div>
-//       </HashRouter>
