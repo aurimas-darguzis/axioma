@@ -1,21 +1,28 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-class App extends Component {
+import './App.css'
+import Landing from './Landing'
+
+class App extends React.Component {
   render () {
     return (
-      <div className='App'>
-        <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to Axioma</h2>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+          </ul>
+          <Route exact path='/' component={Landing} />
         </div>
-        <p className='App-intro'>
-          First things first - I'll create a search component!
-        </p>
-      </div>
+      </Router>
     )
   }
 }
 
 export default App
+
+//  <HashRouter>
+//         <div className='App'>
+//           <Match exactly pattern='/' component={Landing} />
+//         </div>
+//       </HashRouter>
