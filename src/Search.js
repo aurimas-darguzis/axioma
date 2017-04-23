@@ -1,5 +1,6 @@
 import React from 'react'
 import preload from '../public/data.json'
+import ShowCard from './ShowCard'
 
 class Search extends React.Component {
   render () {
@@ -7,9 +8,7 @@ class Search extends React.Component {
       <div>
         {preload.shows.map((show) => {
           return (
-            <div>
-              <img src={`/public/img/posters/${show.poster}`} />
-            </div>
+            <ShowCard show={show} />
           )
         })}
       </div>
