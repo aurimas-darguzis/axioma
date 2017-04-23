@@ -5,11 +5,13 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        {preload.shows.map((function (show) {
+        {preload.shows.map((show) => {
           return (
-            <h3>{show.title}</h3>
+            <div>
+              <img src={`/public/img/posters/${show.poster}`} />
+            </div>
           )
-        }))}
+        })}
       </div>
     )
   }
@@ -23,4 +25,4 @@ export default Search
 // JSON.stringify parameters:
 // 1st - the data you want to stringify
 // 2nd - replacer function, actually goes into json and replace data. Usually you always put null as 2nd parameter
-// 3rd - the desired indentation 
+// 3rd - the desired indentation
