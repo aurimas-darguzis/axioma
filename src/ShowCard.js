@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes, { string } from 'prop-types'
+import { string } from 'prop-types'
 
 class ShowCard extends React.Component {
   render () {

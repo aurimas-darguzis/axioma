@@ -6,17 +6,21 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        {preload.shows.map((show) => {
-          return (
-            <ShowCard key={show.imdbID} {...show} />
-          )
-        })}
+        <header>
+          <h1>Axioma</h1>
+          <input type='text' placeholder='Search' />
+        </header>
+        <div>
+          {preload.shows.map((show) => {
+            return (
+              <ShowCard key={show.imdbID} {...show} />
+            )
+          })}
+        </div>
       </div>
     )
   }
 }
-
-
 
 export default Search
 
