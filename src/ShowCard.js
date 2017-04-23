@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes, { string } from 'prop-types'
 
 class ShowCard extends React.Component {
   render () {
@@ -14,6 +15,16 @@ class ShowCard extends React.Component {
       </div>
     )
   }
+}
+
+// https://facebook.github.io/react/docs/typechecking-with-proptypes.html
+ShowCard.propTypes = {
+  show: PropTypes.shape({
+    poster: string,
+    title: string,
+    year: string,
+    description: string
+  })
 }
 
 export default ShowCard
