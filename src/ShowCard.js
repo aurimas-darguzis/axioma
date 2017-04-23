@@ -27,4 +27,7 @@ ShowCard.propTypes = {
   })
 }
 
+// TODO: implement flow instead of propTypes
+// https://flow.org/en/docs/frameworks/react/
+
 export default ShowCard
