@@ -9,12 +9,15 @@ class Search extends React.Component {
 
     }
   }
+  handleSearchChange (event) {
+    this.setState({searchTerm: event.target.value})
+  }
   render () {
     return (
       <div>
         <header>
           <h1>Axioma</h1>
-          <input value={this.state.searchTerm} type='text' placeholder='Search' />
+          <input onChange={this.handleSearchChange}  type='text' placeholder='Search' />
         </header>
         <div>
           {preload.shows.map((show) => {
