@@ -21,10 +21,9 @@ class Search extends React.Component {
         </header>
         <div>
           {preload.shows
-            .filter((show) => {
-              return `${show.title} ${show.description}`
+            .filter((show) => `${show.title} ${show.description}`
                 .toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
-            })
+            )
             .map((show) => {
               return (
                 <ShowCard key={show.imdbID} {...show} />
