@@ -17,19 +17,19 @@ class Search extends React.Component {
       <div>
         <header>
           <h1>Axioma</h1>
-          <input onChange={this.handleSearchChange}  type='text' placeholder='Search' />
+          <input onChange={this.handleSearchChange} type='text' placeholder='Search' />
         </header>
         <div>
           {preload.shows
             .filter((show) => {
-              return `${show.title} ${show.description}`.
-                toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+              return `${show.title} ${show.description}`
+                .toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
             })
             .map((show) => {
-            return (
-              <ShowCard key={show.imdbID} {...show} />
-            )
-          })}
+              return (
+                <ShowCard key={show.imdbID} {...show} />
+              )
+            })}
         </div>
       </div>
     )
