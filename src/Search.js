@@ -3,12 +3,18 @@ import preload from '../public/data.json'
 import ShowCard from './ShowCard'
 
 class Search extends React.Component {
+  getInitialState () {
+    return {
+      searchTerm: ''
+
+    }
+  }
   render () {
     return (
       <div>
         <header>
           <h1>Axioma</h1>
-          <input type='text' placeholder='Search' />
+          <input value={this.state.searchTerm} type='text' placeholder='Search' />
         </header>
         <div>
           {preload.shows.map((show) => {
