@@ -3,7 +3,12 @@ import React from 'react'
 class Details extends React.Component {
   render () {
     return (
-      <h1>Details component</h1>
+      <div>
+        <h1>Details component</h1>
+        <pre><code>
+          {JSON.stringify(this.props, null, 4)}
+        </code></pre>
+      </div>
     )
   }
 }
