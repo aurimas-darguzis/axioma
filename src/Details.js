@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header'
 import { string, PropTypes } from 'prop-types'
 
 class Details extends React.Component {
@@ -6,10 +7,7 @@ class Details extends React.Component {
     const { title, description, year, poster, trailer } = this.props.show
     return (
       <div>
-        <header>
-          <h1>Axioma</h1>
-        </header>
-
+        <Header />
         <section>
           <h1>{title}</h1>
           <h2>({year})</h2>
