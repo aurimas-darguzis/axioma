@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { string } from 'prop-types'
+import PropTypes from 'prop-types'
 
 class ShowCard extends React.Component {
   render () {
-    const { poster, title, year, description } = this.props
+    const { poster, title, year, description, imdbID } = this.props
     return (
-      <Link to={`/details/${this.props.imdbID}`}>
+      <Link to={`/details/${imdbID}`}>
         <div>
           <img src={`/public/img/posters/${poster}`} alt={`${title}`} />
           <div>
@@ -22,10 +22,11 @@ class ShowCard extends React.Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 ShowCard.propTypes = {
-  poster: string,
-  title: string,
-  year: string,
-  description: string
+  poster: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.string,
+  description: PropTypes.string,
+  imdbID: PropTypes.string
 }
 
 // TODO: implement flow instead of propTypes

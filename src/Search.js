@@ -7,11 +7,12 @@ class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
     }
-  }
-  handleSearchChange (event) {
-    this.setState({searchTerm: event.target.value})
+
+    this.handleSearchChange = (event) => {
+      // searchTerm: event.target.value
+    }
   }
   render () {
     return (
@@ -38,11 +39,12 @@ class Search extends React.Component {
   }
 }
 
-const { string, shape, arrayOf } = React.PropTypes
+// const { string, shape, arrayOf } = React.PropTypes
+import PropTypes from 'prop-types'
 Search.propTypes = {
-  shows: arrayOf(shape({
-    title: string,
-    description: string
+  shows: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string
   }))
 }
 

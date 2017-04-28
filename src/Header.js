@@ -22,17 +22,19 @@ class Header extends React.Component {
             Axioma
           </Link>
         </h1>
-        {utilSpace }
+         { utilSpace }
       </header>
     )
   }
 }
 
-const { func, bool, string } = React.PropTypes
+// const { func, bool, string } = React.PropTypes
+// import { func, bool, string } from 'prop-types'
+import PropTypes from 'prop-types'
 Header.propTypes = {
-  handleSearchTermChange: func,
-  showSearch: bool,
-  searchTerm: string
+  handleSearchTermChange: PropTypes.func,
+  showSearch: PropTypes.bool,
+  searchTerm: PropTypes.string
 }
 
 export default Header
