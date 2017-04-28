@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './Header'
-import { string, PropTypes } from 'prop-types'
 
 class Details extends React.Component {
   render () {
@@ -22,8 +21,10 @@ class Details extends React.Component {
   }
 }
 
+const { string, shape } = React.PropTypes
+
 Details.propTypes = {
-  show: PropTypes.shape({
+  show: shape({
     title: string,
     year: string,
     poster: string,

@@ -1,11 +1,11 @@
 import React from 'react'
 import preload from '../public/data.json'
 import ShowCard from './ShowCard'
-import { string, shape, PropTypes } from 'prop-types'
 
 class Search extends React.Component {
-  getInitialState () {
-    return {
+  constructor (props) {
+    super(props)
+    this.state = {
       searchTerm: ''
     }
   }
@@ -36,8 +36,9 @@ class Search extends React.Component {
   }
 }
 
+const { string, shape, arrayOf } = React.PropTypes
 Search.propTypes = {
-  shows: PropTypes.arrayOf(shape({
+  shows: arrayOf(shape({
     title: string,
     description: string
   }))
