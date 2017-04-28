@@ -1,7 +1,15 @@
 import React from 'react'
+import axios from 'axios'
 import Header from './Header'
 
 class Details extends React.Component {
+  constructor (props) {
+    super (props)
+
+    this.state = {
+      
+    }
+  }
   render () {
     const { title, description, year, poster, trailer } = this.props.show
     return (
