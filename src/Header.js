@@ -22,7 +22,7 @@ class Header extends React.Component {
             Axioma
           </Link>
         </h1>
-        {utilSpace}
+        {utilSpace }
       </header>
     )
   }

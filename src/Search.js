@@ -1,6 +1,7 @@
 import React from 'react'
 import preload from '../public/data.json'
 import ShowCard from './ShowCard'
+import Header from './Header'
 
 class Search extends React.Component {
   constructor (props) {
@@ -15,10 +16,11 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        <header>
-          <h1>Axioma</h1>
-          <input onChange={this.handleSearchChange} type='text' placeholder='Search' />
-        </header>
+        <Header 
+          showSearch
+          searchTerm={this.state.searchTerm}
+          handleSearchChange={this.handleSearchChange} 
+        />
         <div>
         <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
           {preload.shows
