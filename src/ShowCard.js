@@ -1,18 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router'
 import { string } from 'prop-types'
 
 class ShowCard extends React.Component {
   render () {
     const { poster, title, year, description } = this.props
     return (
-      <div>
-        <img src={`/public/img/posters/${poster}`} alt={`${title}`} />
+      <Link to={`/details/${this.props.imdbID}`}>
         <div>
-          <h3>{title}</h3>
-          <h4>({year})</h4>
-          <p>{description}</p>
+          <img src={`/public/img/posters/${poster}`} alt={`${title}`} />
+          <div>
+            <h3>{title}</h3>
+            <h4>({year})</h4>
+            <p>{description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }
