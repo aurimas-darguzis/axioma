@@ -11,16 +11,27 @@ class Details extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`http://www.omdbapi.com/?=${this.props.show.imdbID}`)
+    axios.get(`http://www.omdbapi.com/?i=${this.props.show.imdbID}`)
+      .then((response) => {
+        this.setState({omdbData: response.data})
+      })
+      .catch((error) => console.error('axios error', error ))
   }
   render () {
     const { title, description, year, poster, trailer } = this.props.show
+    let rating
+    if (this.state.omdbData.imdbRating) {
+      rating = <h3>{this.state.omdbData.imdbRating}</h3>
+    } else {
+      rating = 'you can put some loading spinner inside <img /> tag'
+    }
     return (
       <div>
         <Header />
         <section>
           <h1>{title}</h1>
           <h2>({year})</h2>
+          {rating}
           <img src={`/public/img/posters/${poster}`} alt='you should always put value in alt tag :)' />
           <p>{description}</p>
         </section>
