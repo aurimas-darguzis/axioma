@@ -7,8 +7,11 @@ class Details extends React.Component {
     super (props)
 
     this.state = {
-      
+      omdbData: {}
     }
+  }
+  componentDidMount () {
+    axios.get(`http://www.omdbapi.com/?=${this.props.show.imdbID}`)
   }
   render () {
     const { title, description, year, poster, trailer } = this.props.show
@@ -29,15 +32,16 @@ class Details extends React.Component {
   }
 }
 
-const { string, shape } = React.PropTypes
+import PropTypes from 'prop-types'
 
 Details.propTypes = {
-  show: shape({
-    title: string,
-    year: string,
-    poster: string,
-    trailer: string,
-    description: string
+  show: PropTypes.shape({
+    title: PropTypes.string,
+    year: PropTypes.string,
+    poster: PropTypes.string,
+    trailer: PropTypes.string,
+    description: PropTypes.string,
+    imdbID: PropTypes.string
   })
 }
 
