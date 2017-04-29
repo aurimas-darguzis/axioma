@@ -16,22 +16,22 @@ class App extends React.Component {
             <li><Link to='/search'>Search</Link></li>
           </ul>
           <Route exact path='/' component={Landing} />
-          <Route 
-            path='/search' 
+          <Route
+            path='/search'
             component={(props) => <Search shows={preload.shows} {...props} />}
-            
+
           />
-          <Route 
-            path='/details/:id' 
+          <Route
+            path='/details/:id'
             component={(props) => {
-                const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
-                return <Details show={shows[0]} {...props} />
-              }
+              const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
+              return <Details show={shows[0]} {...props} />
+            }
             }
           />
         </div>
       </Router>
-      
+
     )
   }
 }

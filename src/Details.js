@@ -4,7 +4,7 @@ import Header from './Header'
 
 class Details extends React.Component {
   constructor (props) {
-    super (props)
+    super(props)
 
     this.state = {
       omdbData: {}
@@ -15,7 +15,7 @@ class Details extends React.Component {
       .then((response) => {
         this.setState({omdbData: response.data})
       })
-      .catch((error) => console.error('axios error', error ))
+      .catch((error) => console.error('axios error', error))
   }
   render () {
     const { title, description, year, poster, trailer } = this.props.show
@@ -57,7 +57,6 @@ Details.propTypes = {
 }
 
 export default Details
-
 
 // <pre><code>
 //   {JSON.stringify(this.props, null, 4)}

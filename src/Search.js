@@ -7,7 +7,7 @@ class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchTerm: '',
+      searchTerm: ''
     }
 
     this.handleSearchChange = (event) => {
@@ -17,13 +17,13 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        <Header 
+        <Header
           showSearch
           searchTerm={this.state.searchTerm}
-          handleSearchChange={this.handleSearchChange} 
+          handleSearchChange={this.handleSearchChange}
         />
         <div>
-        <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
+          <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
           {preload.shows
             .filter((show) => `${show.title} ${show.description}`
                 .toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
