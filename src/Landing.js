@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
@@ -14,7 +15,7 @@ class Landing extends React.Component {
 
         <div>
           <h1>This is Landing component</h1>
-          <input type='text' placeholder='Search' />
+          <input value={this.props.searchTerm} type='text' placeholder='Search' />
           <Link to='/search' >or Browse All</Link>
         </div>
       </div>
@@ -22,4 +23,14 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing
+import PropTypes from 'prop-types'
+Landing.propTypes = {
+  searchTerm: PropTypes.string
+}
+
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+export default connect(mapStateToProps)(Landing)

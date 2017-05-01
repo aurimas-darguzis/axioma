@@ -1,10 +1,10 @@
 import { SET_SEARCH_TERM } from './actions'
 
 const DEFAULT_STATE = {
-  searchTerm: ''
+  searchTerm: 'something random'
 }
 
-function setSearchTerm(state, action) {
+function setSearchTerm (state, action) {
   return Object.assign({}, state, {searchTerm: action.searchTerm})
 }
 
