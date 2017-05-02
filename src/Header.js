@@ -1,11 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { setSearchTerm } from './actionCreators'
 import { Link } from 'react-router'
 
 class Header extends React.Component {
+  constructor (props) {
+    super(props)
+
+    // making sure Header is `this`.
+    // Other words - `this` is always refering to Header Component
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this)
+  }
+  handleSearchTermChange (event) {
+    this.props.dispatch(setSearchTerm(event.target.value))
+  }
   render () {
     let utilSpace
     if (this.props.showCard) {
-      utilSpace = <input onChange={this.props.handleSearchChange} value={this.props.searchTerm} type='text' placeholder='Search' />
+      utilSpace = <input onChange={this.handleSearchTermChange} value={this.props.searchTerm} type='text' placeholder='Search' />
     } else {
       utilSpace = (
         <h2>
@@ -32,9 +44,15 @@ class Header extends React.Component {
 // import { func, bool, string } from 'prop-types'
 import PropTypes from 'prop-types'
 Header.propTypes = {
-  handleSearchTermChange: PropTypes.func,
+  dispatch: PropTypes.func,
   showSearch: PropTypes.bool,
   searchTerm: PropTypes.string
 }
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Header)
