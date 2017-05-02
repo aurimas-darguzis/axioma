@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import preload from '../public/data.json'
 import ShowCard from './ShowCard'
 import Header from './Header'
@@ -6,22 +7,12 @@ import Header from './Header'
 class Search extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      searchTerm: ''
-    }
 
-    this.handleSearchChange = (event) => {
-      // searchTerm: event.target.value
-    }
   }
   render () {
     return (
       <div>
-        <Header
-          showSearch
-          searchTerm={this.state.searchTerm}
-          handleSearchChange={this.handleSearchChange}
-        />
+        <Header showSearch />
         <div>
           <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
           {preload.shows
@@ -45,7 +36,8 @@ Search.propTypes = {
   shows: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string
-  }))
+  })),
+  searchTerm: PropTypes.string
 }
 
 export default Search

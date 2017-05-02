@@ -12,7 +12,8 @@ class Landing extends React.Component {
   }
   handleSearchSubmit (event) {
     event.preventDefault()
-
+    // this is how to programatically navigate with React router
+    this.context.router.transitionTo('/search')
   }
   render () {
     return (
