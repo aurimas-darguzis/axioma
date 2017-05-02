@@ -5,19 +5,14 @@ import ShowCard from './ShowCard'
 import Header from './Header'
 
 class Search extends React.Component {
-  constructor (props) {
-    super(props)
-
-  }
   render () {
     return (
       <div>
         <Header showSearch />
         <div>
-          <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
-          {preload.shows
+          {this.props.shows
             .filter((show) => `${show.title} ${show.description}`
-                .toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+                .toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0
             )
             .map((show) => {
               return (
@@ -40,7 +35,13 @@ Search.propTypes = {
   searchTerm: PropTypes.string
 }
 
-export default Search
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Search)
 
 // When you want to debug json this is how you should do it:
 // <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
