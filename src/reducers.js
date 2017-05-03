@@ -1,11 +1,19 @@
-import { SET_SEARCH_TERM } from './actions'
+import { SET_SEARCH_TERM, ADD_OMDB_DATA } from './actions'
 
 const DEFAULT_STATE = {
-  searchTerm: ''
+  searchTerm: '',
+  omdbData: {}
 }
 
 function setSearchTerm (state, action) {
   return Object.assign({}, state, {searchTerm: action.searchTerm})
+}
+
+const addOMDBData = (state, action) => {
+  const newOMDBData = {}
+  Object.assign(newOMDBData, state.omdbData, {
+    [action.imdbId] : action.omdbData
+  })
 }
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
