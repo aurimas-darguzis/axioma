@@ -1,27 +1,20 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { getOMDBDetails } from './actionCreators'
 import Header from './Header'
 
 class Details extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      omdbData: {}
-    }
-  }
   componentDidMount () {
-    axios.get(`http://www.omdbapi.com/?i=${this.props.show.imdbID}`)
-      .then((response) => {
-        this.setState({omdbData: response.data})
-      })
-      .catch((error) => console.error('axios error', error))
+    if (!this.props.omdbData.imdbRating) {
+      this.props.dispatch(getOMDBDetails(this.props.show.imdbID))
+    }
   }
   render () {
     const { title, description, year, poster, trailer } = this.props.show
     let rating
-    if (this.state.omdbData.imdbRating) {
-      rating = <h3>{this.state.omdbData.imdbRating}</h3>
+    if (this.props.omdbData.imdbRating) {
+      rating = <h3>{this.props.omdbData.imdbRating}</h3>
     } else {
       rating = 'you can put some loading spinner inside <img /> tag'
     }
@@ -53,10 +46,21 @@ Details.propTypes = {
     trailer: PropTypes.string,
     description: PropTypes.string,
     imdbID: PropTypes.string
-  })
+  }),
+  omdbData: PropTypes.shape({
+    imdbID: PropTypes.string
+  }),
+  dispatch: PropTypes.func
 }
 
-export default Details
+const mapStateToProps = (state, ownProps) => {
+  const omdbData = state.omdbData[ownProps.show.imdbID] ? state.omdbData[ownProps.show.imdbID] : {}
+  return {
+    omdbData
+  }
+}
+
+export default connect(mapStateToProps)(Details)
 
 // <pre><code>
 //   {JSON.stringify(this.props, null, 4)}
