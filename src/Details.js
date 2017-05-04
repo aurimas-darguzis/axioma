@@ -24,7 +24,7 @@ class Details extends React.Component {
         <section>
           <h1>{title}</h1>
           <h2>({year})</h2>
-          {rating}
+          rating: {rating}
           <img src={`/public/img/posters/${poster}`} alt='you should always put value in alt tag :)' />
           <p>{description}</p>
         </section>
