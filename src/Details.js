@@ -16,7 +16,7 @@ class Details extends React.Component {
     if (this.props.omdbData.imdbRating) {
       rating = <h3>{this.props.omdbData.imdbRating}</h3>
     } else {
-      rating = 'you can put some loading spinner inside <img /> tag'
+      rating = 'put some loading spinner inside <img /> tag'
     }
     return (
       <div>
