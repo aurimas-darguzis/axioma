@@ -6,7 +6,6 @@ import logo from './logo.svg'
 import './App.css'
 
 class Landing extends React.Component {
-  
   handleSearchTermChange (event) {
     this.props.dispatch(setSearchTerm(event.target.value))
   }
@@ -26,9 +25,9 @@ class Landing extends React.Component {
         <div>
           <h1>This is Landing component</h1>
           <form onSubmit={this.handleSearchSubmit}>
-            <input onChange={this.handleSearchTermChange} 
-                   value={this.props.searchTerm} 
-                   type='text' placeholder='Search' />
+            <input onChange={this.handleSearchTermChange}
+              value={this.props.searchTerm}
+              type='text' placeholder='Search' />
           </form>
           <Link to='/search' >or Browse All</Link>
         </div>

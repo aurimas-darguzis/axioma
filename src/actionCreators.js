@@ -13,7 +13,7 @@ export function getOMDBDetails (imdbId) {
   return function (dispatch, getState, imdbID) {
     axios.get(`http://www.omdbapi.com/?i=${imdbID}`)
       .then((response) => {
-        dispatch(addOMDBData(imdbID,response.data))
+        dispatch(addOMDBData(imdbID, response.data))
       })
       .catch((error) => console.error('axios error', error))
   }
