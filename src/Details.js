@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { connect } from 'react-redux'
 import { getOMDBDetails } from './actionCreators'
 import Header from './Header'
